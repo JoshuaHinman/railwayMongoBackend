@@ -9,7 +9,15 @@ const EmployeeSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    id: {
+        type: String,
+        required: true
+    },
     password: {
+        type: String,
+        required: true
+    },
+    username: {
         type: String,
         required: true
     },
@@ -18,11 +26,11 @@ const EmployeeSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    signupDate: {
-        type: Date,
-        required: true,
-        default: Date.now
+    roles: {
+        type: [ String ], //TODO: change to ObjectId or reference
+        required: false
     }
+    
 });
 
 export default mongoose.model('Employee', EmployeeSchema);
